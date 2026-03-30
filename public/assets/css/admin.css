@@ -1,0 +1,364 @@
+/* =========================================================
+   Admin - Shared fixes
+   ========================================================= */
+
+/* ✅ inline errors (same style as front/login) */
+.invalid-feedback {
+    display: block;
+}
+
+/* ✅ remove bootstrap invalid icon */
+.form-control.is-invalid {
+    background-image: none !important;
+    padding-right: .75rem !important;
+}
+/* ===== Invalid input styling ===== */
+.form-control.is-invalid,
+.form-select.is-invalid {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+/* لمنع shadow لما يكون disabled أو readonly */
+.form-control.is-invalid:disabled,
+.form-control.is-invalid[readonly] {
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   Admin Navbar (Mobile)
+   ========================================================= */
+
+@media (max-width: 576px) {
+
+    /* keep all navbar items in one row */
+    .navbar.default-layout-navbar .navbar-menu-wrapper {
+        flex-wrap: nowrap;
+        gap: 6px;
+    }
+
+    /* View Storefront + Logout (circular buttons) */
+    .navbar-menu-wrapper a.btn,
+    .navbar-menu-wrapper button.btn {
+        padding: 0 !important;
+        width: 38px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        white-space: nowrap;
+    }
+
+    /* Search field */
+    .navbar-menu-wrapper .search-field {
+        flex: 1;
+        max-width: 130px;
+        margin: 0 4px;
+    }
+
+    .navbar-menu-wrapper .search-field input {
+        font-size: 0.75rem !important;
+        padding: 4px 6px !important;
+    }
+
+    /* Icons list */
+    .navbar-nav.navbar-nav-right {
+        flex-direction: row;
+        gap: 6px;
+    }
+
+    .navbar-nav.navbar-nav-right .nav-item .nav-link {
+        padding: 4px;
+    }
+
+    /* profile image */
+    .nav-profile-img img {
+        width: 28px !important;
+        height: 28px !important;
+    }
+
+    .nav-profile-text {
+        display: none;
+    }
+
+    /* menu toggle */
+    .navbar-toggler {
+        padding: 0 !important;
+        margin-left: 4px;
+    }
+}
+
+/* Logout button */
+.btn-logout {
+    border: 1px solid rgba(0, 0, 0, .15);
+    background: #fff;
+    color: #66595981;
+    transition: all .15s ease;
+}
+
+.btn-logout:hover {
+    background: rgba(0, 0, 0, .05);
+    color: #000;
+}
+
+
+/* =========================================================
+   Admin Orders - Ultra Soft Filters
+   ========================================================= */
+
+.orders-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 50px;
+}
+
+.orders-head .card-title {
+    margin: 0;
+    font-weight: 700;
+}
+
+.orders-filters {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Soft select */
+.soft-select {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    height: 38px;
+    padding: 0 12px;
+
+    border-radius: 12px;
+    background: #f7f7f9;
+    border: 1px solid #ececf1;
+
+    transition: .15s ease;
+}
+
+.soft-select:hover {
+    background: #f3f3f7;
+    border-color: #e1e1ea;
+}
+
+.soft-select i {
+    font-size: 1rem;
+    color: #8b8fa8;
+}
+
+.soft-select select {
+    border: 0 !important;
+    background: transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
+
+    height: 36px;
+    padding: 0 26px 0 0;
+    margin: 0;
+
+    font-size: .86rem;
+    color: #4b3a42;
+
+    appearance: none;
+    min-width: 190px;
+}
+
+.soft-select:after {
+    content: "\F0140";
+    font-family: "Material Design Icons";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: #9aa0b8;
+    pointer-events: none;
+}
+
+.soft-select.sm select {
+    min-width: 160px;
+}
+
+/* Buttons */
+.orders-btn {
+    height: 38px;
+    padding: 0 14px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: .84rem;
+    font-weight: 600;
+}
+
+.orders-btn-reset {
+    background: #f7f7f9;
+    border: 1px solid #ececf1;
+    color: #4b3a42;
+}
+
+.orders-btn-reset:hover {
+    background: #f1f1f6;
+    color: #4b3a42;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .orders-head {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .orders-filters {
+        width: 100%;
+    }
+
+    .soft-select,
+    .soft-select select {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    .orders-btn {
+        width: 48%;
+        justify-content: center;
+    }
+}
+
+
+/* =========================================================
+   Switch (Purple)
+   ========================================================= */
+
+.switch-purple .form-check-input {
+    width: 44px;
+    height: 24px;
+    margin: 0;
+    cursor: pointer;
+
+    -webkit-appearance: none;
+    appearance: none;
+
+    background-color: #e4e6f7;
+    border-radius: 999px;
+
+    position: relative;
+    border: none;
+    outline: none;
+
+    transition: background-color 0.2s ease-in-out;
+}
+
+.switch-purple .form-check-input::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+    transition: transform 0.2s ease-in-out;
+}
+
+.switch-purple .form-check-input:checked {
+    background-image: linear-gradient(90deg, #b66dff, #5e72e4);
+}
+
+.switch-purple .form-check-input:checked::before {
+    transform: translateX(20px);
+}
+
+
+/* =========================================================
+   Product Images (Admin)
+   ========================================================= */
+
+/* highlight primary image */
+.product-image-item.is-primary {
+    border-radius: .35rem;
+}
+
+/* scroll container for images list */
+.admin-product-images-scroll {
+    max-height: 420px;
+    overflow-y: auto;
+
+    padding-right: 10px;
+    margin-right: -10px;
+
+    scroll-behavior: smooth;
+
+    /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, .14) transparent;
+}
+
+/* scrollbar (WebKit) */
+.admin-product-images-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.admin-product-images-scroll::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 999px;
+    margin: 6px 0;
+}
+
+.admin-product-images-scroll::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.12);
+    border-radius: 999px;
+
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.admin-product-images-scroll:hover::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.20);
+
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+
+/* =========================================================
+   Dashboard Cards - Clickable
+   ========================================================= */
+
+.js-card-link {
+    cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.js-card-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, .10);
+}
+
+.js-card-link:active {
+    transform: translateY(0);
+}
+/* Gradient Success Button (match danger style) */
+.btn-gradient-success {
+    background: linear-gradient(135deg, #34e7cc 0%, #1ccaa7 100%);
+    border: none;
+    color: #fff;
+}
+
+.btn-gradient-success:hover {
+    background: linear-gradient(135deg, #1fc4a3 0%, #16c5a2 100%);
+    color: #fff;
+}

@@ -1,0 +1,146 @@
+/* ✅ نفس نمط اللوغ: inline errors */
+.invalid-feedback {
+    display: block;
+}
+
+/* ✅ إخفاء أيقونة التعجب + ضبط padding */
+.form-control.is-invalid {
+    background-image: none !important;
+    padding-right: .75rem !important;
+}
+
+.password-toggle-wrap {
+    position: relative;
+}
+
+.input-with-icon {
+    position: relative;
+    display: block;
+}
+
+.input-with-icon .toggle-password {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    color: #9c9c9c;
+    z-index: 2;
+}
+
+.input-with-icon .toggle-password:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.invalid-feedback {
+    display: block;
+}
+
+.form-group .invalid-feedback {
+    margin-top: .35rem;
+}
+
+.auth-form-light .form-control,
+.auth-form-light .form-control-lg {
+    border-radius: 4px !important;
+}
+
+.auth-form-light .input-with-icon input.form-control,
+.auth-form-light .input-with-icon input.form-control-lg {
+    padding-right: 2.75rem;
+}
+
+.password-toggle-wrap {
+    position: relative;
+}
+
+/* ✅ wrapper ثابت لحتى العين تضل بالنص */
+.input-with-icon {
+    position: relative;
+    display: block;
+}
+
+.input-with-icon .toggle-password {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    color: #9c9c9c;
+    z-index: 2;
+}
+
+.input-with-icon .toggle-password:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.invalid-feedback {
+    display: block;
+}
+
+.field-hint {
+    font-size: .78rem;
+    color: rgba(0, 0, 0, .55);
+    margin-top: .35rem;
+}
+
+.form-group .invalid-feedback {
+    margin-top: .35rem;
+}
+
+/* ✅ زيادة الكورف لحقول الإدخال */
+.auth-form-light .form-control,
+.auth-form-light .form-control-lg {
+    border-radius: 4px !important;
+    /* غيري الرقم مثل ما بدك: 12 / 16 / 18 */
+}
+
+/* ✅ (مهم) حقل فيه عين: خلي مساحة يمين حتى ما يركب النص تحت الزر */
+.auth-form-light .input-with-icon input.form-control,
+.auth-form-light .input-with-icon input.form-control-lg {
+    padding-right: 2.75rem;
+}
+
+.invalid-feedback {
+    display: block;
+}
+
+.form-control.is-invalid {
+    background-image: none !important;
+    padding-right: .75rem !important;
+}
+
+.pw-wrap {
+    position: relative;
+}
+
+.pw-wrap .pw-eye {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    color: #9c9c9c;
+    z-index: 2;
+}
+
+.pw-wrap .pw-eye:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.pw-wrap input.form-control,
+.pw-wrap input.form-control-lg {
+    padding-right: 2.75rem;
+}
