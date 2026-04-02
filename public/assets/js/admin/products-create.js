@@ -313,7 +313,29 @@ function initProductCreateAjaxSubmit() {
 
         if (submitBtn) submitBtn.disabled = true;
 
-        const fd = new FormData(form);
+        const fd = new FormData();
+
+        const formElements = form.querySelectorAll('input, select, textarea');
+        
+        formElements.forEach(el => {
+            if (!el.name) return;
+        
+            if (el.type === 'file') {
+                // تجاهل file input الأصلي
+                return;
+            }
+        
+            if ((el.type === 'checkbox' || el.type === 'radio') && !el.checked) {
+                return;
+            }
+        
+            fd.append(el.name, el.value);
+        });
+        
+        // ✨ هون السر الحقيقي
+        (window.currentFiles || []).forEach(file => {
+            fd.append('images[]', file);
+        });
 
         try {
             const res = await fetch(form.action, {
@@ -343,6 +365,14 @@ function initProductCreateAjaxSubmit() {
                 const firstBad = form.querySelector('.is-invalid');
                 if (firstBad) firstBad.focus();
 
+                if (submitBtn) submitBtn.disabled = false;
+                return;
+            }
+
+            if (!res.ok) {
+                const text = await res.text();
+                console.error('Create product failed:', text);
+                alert('صار خطأ من السيرفر. افتح Console وشوف التفاصيل.');
                 if (submitBtn) submitBtn.disabled = false;
                 return;
             }
