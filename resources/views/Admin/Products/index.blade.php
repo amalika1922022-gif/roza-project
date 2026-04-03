@@ -66,16 +66,15 @@
                                     </a>
 
                                     <form action="{{ route('admin.products.destroy', $product->id) }}"
-                                          method="POST"
-                                          class="d-inline-block"
-                                          onsubmit="return confirm('Are you sure?');">
-                                        @csrf
-                                        @method('DELETE')
-
-                                        <button class="btn btn-sm btn-outline-danger" type="submit">
-                                            Delete
-                                        </button>
-                                    </form>
+                                        method="POST"
+                                        class="d-inline-block form-delete-product">
+                                      @csrf
+                                      @method('DELETE')
+                                  
+                                      <button class="btn btn-sm btn-outline-danger" type="submit">
+                                          Delete
+                                      </button>
+                                  </form>
                                 </td>
                             </tr>
                         @empty
@@ -94,4 +93,43 @@
         </div>
     </div>
 
+    @push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    document.querySelectorAll('.form-delete-product').forEach(form => {
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            Swal.fire({
+                title: 'Delete this product?',
+                text: 'This action cannot be undone',
+                icon: 'question',
+
+                showCancelButton: true,
+                confirmButtonText: 'Delete',
+                cancelButtonText: 'Cancel',
+
+                buttonsStyling: false,
+
+                customClass: {
+                    popup: 'swal-clean',
+                    confirmButton: 'btn btn-gradient-primary me-2',
+                    cancelButton: 'btn btn-light'
+                }
+
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+
+        });
+
+    });
+
+});
+</script>
+@endpush
 @endsection

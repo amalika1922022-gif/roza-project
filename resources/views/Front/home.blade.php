@@ -150,7 +150,7 @@
         </div>
 
         @if (isset($latestProducts) && $latestProducts->count())
-            <div class="row g-3">
+            <div class="row g-3 front-products-grid">
                 @foreach ($latestProducts as $product)
                     @include('Front.partials.card', [
                         'product' => $product,

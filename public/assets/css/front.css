@@ -106,7 +106,7 @@
   height: 100% !important;
   display: block;
 
-  object-fit: cover;
+  object-fit:contain;
   border-radius: 0 !important;
 }
 
@@ -1379,4 +1379,59 @@ footer.front-footer {
 #front-floating-alert.hide {
   opacity: 0;
   transform: translateX(-50%) translateY(-10px);
+}
+
+/* الكولم نفسها */
+.front-products-grid .col-6,
+.front-products-grid .col-md-3 {
+  display: flex;
+}
+
+/* الكرت نفسه */
+.front-product-card {
+  width: 100%;
+  height: 100%;
+  min-height: 340px; /* عدلي الرقم كما تريدين */
+  display: flex;
+  flex-direction: column;
+}
+
+/* الصورة */
+.front-product-img {
+  width: 100%;
+  height: 210px;
+  flex-shrink: 0;
+  object-fit: cover; /* أفضل من fill */
+}
+
+/* جسم الكرت */
+.front-product-body {
+  padding: 13px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+/* الكاتيجوري */
+.front-product-category {
+  min-height: 18px;
+}
+
+/* اسم المنتج */
+.front-product-name {
+  min-height: 48px; /* يثبت مكان الاسم */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* سطرين فقط */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* السعر */
+.front-product-price {
+  min-height: 24px;
+}
+
+/* المنطقة السفلية */
+.front-product-actions {
+  margin-top: auto;
 }

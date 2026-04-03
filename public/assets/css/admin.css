@@ -362,3 +362,31 @@
     background: linear-gradient(135deg, #1fc4a3 0%, #16c5a2 100%);
     color: #fff;
 }
+
+.swal-clean {
+    width: 340px !important;
+    border-radius: 12px !important;
+    padding: 15px 20px !important;
+}
+
+.swal-clean .swal2-title {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    color: #333 !important;
+}
+
+.swal-clean .swal2-html-container {
+    font-size: 13px !important;
+    color: #777 !important;
+    margin: 5px 0 !important;
+}
+
+.swal-clean .swal2-icon {
+    transform: scale(0.7);
+    margin-bottom: 2px;
+    margin-top: 1px;
+}
+
+.swal-clean .swal2-actions {
+    margin-top: 10px !important;
+}

@@ -4,12 +4,6 @@
 
 @section('content')
 
-    {{-- =========================
-        ✅ Alerts (Front)
-        - floating_alert موجود بالـ layout
-        - session/errors_box غير مستخدمين هون حالياً
-        - validation غير مستخدم لأن ما في حقول Laravel validation هون
-    ========================= --}}
 
     <style>
         /* إذا بدك شي هون */
@@ -159,7 +153,7 @@
             };
         </script>
 
-        <script src="{{ asset('assets/front/js/product-show.js') }}"></script>
+        <script src="{{ asset('assets/js/front/product-show.js') }}"></script>
     @endpush
 
 @endsection

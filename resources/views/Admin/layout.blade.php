@@ -51,9 +51,9 @@
 
     {{-- Dashboard JS (template) --}}
     <script src="{{ asset('assets/js/dashboard.js') }}"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     {{-- ✅ ملف عام فقط --}}
-    <script src="{{ asset('assets/js/admin/admin.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/admin/admin.js') }}"></script> --}}
 
     {{-- ✅ سكربتات الصفحات هون --}}
     @stack('scripts')

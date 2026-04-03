@@ -1,7 +1,6 @@
 @extends('Admin.layout')
 
 @section('content')
-
     <div class="page-header d-flex justify-content-between align-items-center">
         <h3 class="page-title">
             <span class="page-title-icon bg-gradient-primary text-white me-2">
@@ -84,19 +83,17 @@
 
                                         <td class="text-end">
                                             <a href="{{ route('admin.categories.show', $category) }}"
-                                               class="btn btn-sm btn-outline-info">
+                                                class="btn btn-sm btn-outline-info">
                                                 View
                                             </a>
 
                                             <a href="{{ route('admin.categories.edit', $category) }}"
-                                               class="btn btn-sm btn-outline-primary">
+                                                class="btn btn-sm btn-outline-primary">
                                                 Edit
                                             </a>
 
                                             <form action="{{ route('admin.categories.destroy', $category) }}"
-                                                  method="POST"
-                                                  class="d-inline-block"
-                                                  onsubmit="return confirm('Are you sure you want to delete this category?');">
+                                                method="POST" class="d-inline-block form-delete-category">
                                                 @csrf
                                                 @method('DELETE')
 
@@ -126,4 +123,42 @@
         </div>
     </div>
 
+    @push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    document.querySelectorAll('.form-delete-category').forEach(form => {
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            Swal.fire({
+                title: 'Delete this category?',
+                text: 'This action cannot be undone',
+                icon: 'question', // أخف من warning
+                showCancelButton: true,
+
+                confirmButtonText: 'Delete',
+                cancelButtonText: 'Cancel',
+
+                buttonsStyling: false, // مهم للتحكم الكامل
+
+                customClass: {
+                    popup: 'swal-clean',
+                    confirmButton: 'btn btn-gradient-primary me-2',
+                    cancelButton: 'btn btn-light'
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+
+        });
+
+    });
+
+});
+</script>
+@endpush
 @endsection
