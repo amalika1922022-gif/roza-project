@@ -23,7 +23,7 @@ class Product extends Model
         'weight',
         'meta',
     ];
-    
+
     protected $casts = [
         'meta' => 'array',
         'is_active' => 'boolean',
@@ -38,9 +38,9 @@ class Product extends Model
     public function images()
     {
         return $this->hasMany(ProductImage::class)
-        ->orderByDesc('is_primary')  // خلي الصورة الأساسية أول وحدة
-        ->orderBy('sort_order')      // بعدين حسب الترتيب اليدوي (لو مستخدمته)
-        ->orderBy('id');
+            ->orderByDesc('is_primary')  // خلي الصورة الأساسية أول وحدة
+            ->orderBy('sort_order')      // بعدين حسب الترتيب اليدوي (لو مستخدمته)
+            ->orderBy('id');
     }
 
     public function orderItems()
@@ -51,5 +51,10 @@ class Product extends Model
     public function cartItems()
     {
         return $this->hasMany(CartItem::class);
+    }
+
+    public function homepageCarouselItem()
+    {
+        return $this->hasOne(HomepageCarouselItem::class);
     }
 }

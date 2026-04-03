@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Cart;
+use App\Models\HomepageCarouselItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,7 +21,6 @@ class HomeController extends Controller
         // كاتيجوريز مميزة (مثلاً أول 3)
         $featuredCategories = Category::orderBy('created_at')->get();
 
-
         // أحدث المنتجات
         $latestProducts = Product::with(['images', 'category'])
             ->where('is_active', true)
@@ -28,11 +28,21 @@ class HomeController extends Controller
             ->take(8)
             ->get();
 
+        // ✅ منتجات الكورسل المختارة من الداشبورد
+        $heroProducts = HomepageCarouselItem::with(['product.images'])
+            ->orderBy('sort_order')
+            ->get()
+            ->pluck('product')
+            ->filter(function ($product) {
+                return $product && $product->is_active;
+            });
+
         $cartCount = $this->getCartCount($request);
 
         return view('Front.home', [
             'featuredCategories' => $featuredCategories,
             'latestProducts'     => $latestProducts,
+            'heroProducts'       => $heroProducts,
             'cartCount'          => $cartCount,
         ]);
     }

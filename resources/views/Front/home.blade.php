@@ -22,8 +22,8 @@
                     <div class="hero-carousel" id="heroProductCarousel">
                         <div class="hero-carousel-viewport">
                             <div class="hero-carousel-track">
-                                @if (isset($latestProducts) && $latestProducts->count())
-                                    @foreach ($latestProducts->take(6) as $p)
+                                @if (isset($heroProducts) && $heroProducts->count())
+                                    @foreach ($heroProducts as $p)
                                         @php
                                             $img = optional($p->images->first())->url ?? null;
                                         @endphp

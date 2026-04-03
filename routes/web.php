@@ -80,6 +80,14 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', AdminMiddleware::cla
     Route::delete('products/{product}/image/{image}', [ProductAdminController::class, 'deleteImage'])
         ->name('products.image.delete');
 
+    Route::post('homepage-carousel', [DashboardController::class, 'storeHomepageCarouselItem'])
+        ->name('homepage-carousel.store');
+    Route::put('homepage-carousel/{item}', [DashboardController::class, 'updateHomepageCarouselItem'])
+        ->name('homepage-carousel.update');
+
+    Route::delete('homepage-carousel/{item}', [DashboardController::class, 'destroyHomepageCarouselItem'])
+        ->name('homepage-carousel.destroy');
+
     Route::prefix('orders')->name('orders.')->group(function () {
         Route::get('/', [OrderAdminController::class, 'index'])->name('index');
         Route::get('/{order}', [OrderAdminController::class, 'show'])->name('show');
